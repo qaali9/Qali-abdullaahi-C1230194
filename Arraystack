@@ -1,0 +1,57 @@
+import java.util.Arrays;
+import java.util.EmptyStackException;
+public class Sarraystack {
+        private int top;
+        private String[] stack;
+        private int capacity;
+        public Sarraystack (int size) {
+            capacity = size;
+            stack = new String[capacity];
+            top = 0;
+        }
+        public void add(String element) {
+            if (top == capacity) {
+                increaseCapacity();
+            }
+            stack[top++] = element;
+        }
+        public String remove() {
+            if (isEmpty()) {
+                throw new EmptyStackException();
+            }
+            String value = stack[--top];
+            stack[top] = null;
+            return value;
+        }
+        public String topElement() {
+            if (isEmpty()) {
+                throw new EmptyStackException();
+            }
+            return stack[top - 1];
+        }
+        public boolean isEmpty() {
+            return top == 0;
+        }
+        public void size() {
+            System.out.println("Current size: " + top);
+        }
+        private void increaseCapacity() {
+            capacity *= 2;
+            stack = Arrays.copyOf(stack, capacity);
+            System.out.println("Stack expanded to size: " + capacity);
+        }
+        public void show() {
+            if (isEmpty())
+                throw new EmptyStackException();
+            else
+                System.out.println("Elements of an array: ");
+            for (int i = 0; i < top; i++)
+                System.out.println(stack[i] + " ");
+            System.out.println();
+        }
+
+
+
+
+
+}
