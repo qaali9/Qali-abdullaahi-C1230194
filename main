@@ -1,0 +1,17 @@
+public class mainstackarry {
+    public static void main(String[] args) {
+        Sarraystack s = new Sarraystack (3);
+        s.add("Qali");
+        s.add("Ali");
+        s.add("Li");
+        s.add("Maryan");
+        s.show();
+
+        System.out.println("Top element: " + s.topElement());
+        System.out.println("Removed element: " + s.remove());
+        s.size();
+        System.out.println("Is empty? " + s.isEmpty());
+        s.show();
+    }
+
+}
